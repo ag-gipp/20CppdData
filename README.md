@@ -2,6 +2,23 @@
 
 ## Log moritz 2020-01-26
 ```
+docker cp hyplag_backend_cppd:/root/unique.tar .
+tar -xf unique.tar
+cat k1/*.csv > k1.csv
+rm -rf k1
+cat k2/*.csv > k2.csv
+rm -rf k2
+cat k3/*.csv > k3.csv
+rm k3 -rf
+mkdir k3
+cp k3.csv k3
+cd k3
+split -b 10M k3.csv
+rm k3.csv
+cd ..
+rm unique.tar
+git add -A
+```
 [2020-01-26 19:31:17] Connected
 > create database moritz
 [2020-01-26 19:31:17] 1 row affected in 102 ms
