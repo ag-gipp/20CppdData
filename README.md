@@ -44,3 +44,18 @@ moritz> LOAD DATA INFILE '/tmp/k3.csv' into table k3
             (docid,@var1)
         SET hash = UNHEX(@var1)
 [2020-01-26 20:04:42] 18522790 rows affected in 1 m 1 s 55 ms
+```
+Add indexe
+```
+create index k1_hash_index
+        	on k1 (hash)
+[2020-01-26 20:07:40] completed in 365 ms
+moritz> create index k2_hash_index
+        	on k2 (hash)
+[2020-01-26 20:11:16] completed in 3 s 518 ms
+```
+INSERT K3 Index here.
+
+```
+Select T.freq, count(T.hash) from (Select hash, count(docid) freq from k1 group by hash) T group by T.freq
+```
