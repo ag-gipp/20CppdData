@@ -53,9 +53,11 @@ create index k1_hash_index
 moritz> create index k2_hash_index
         	on k2 (hash)
 [2020-01-26 20:11:16] completed in 3 s 518 ms
+moritz> create index k3_hash_index
+            on k3 (hash)
+[2020-01-26 20:13:03] completed in 1 m 17 s 1 ms
 ```
-INSERT K3 Index here.
-
+Frequency distributions [k1](/dist/k1.csv), [k2](/dist/k2.csv), [k3](/dist/k3.csv)
 ```
 Select T.freq, count(T.hash) from (Select hash, count(docid) freq from k1 group by hash) T group by T.freq
 ```
