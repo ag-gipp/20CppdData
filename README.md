@@ -64,8 +64,9 @@ Select T.freq, count(T.hash) from (Select hash, count(docid) freq from k1 group 
 Table sizes (index nur auf hash)
 ```
 SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size (MB)` FROM information_schema.TABLES WHERE table_schema = "moritz";
-```
+-->
 Table,Size (MB)
 k1,3.03
 k2,40.11
 k3,1549.98
+```
