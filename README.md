@@ -128,4 +128,21 @@ moritz> truncate table k2
 moritz> truncate table k3
 [2020-01-26 22:38:22] completed in 16 s 711 ms
 ```
-
+interesting that ahead index creation is soo much slower...
+```
+moritz> LOAD DATA INFILE '/tmp/k1.csv' into table k1
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-26 22:42:42] 22658 rows affected in 274 ms
+moritz> LOAD DATA INFILE '/tmp/k2.csv' into table k2
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-26 22:43:03] 717526 rows affected in 9 s 34 ms
+moritz> LOAD DATA INFILE '/tmp/k3.csv' into table k3
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-26 23:02:50] 32941436 rows affected in 19 m 35 s 23 ms
+```
