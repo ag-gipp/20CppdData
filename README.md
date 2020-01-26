@@ -70,3 +70,24 @@ k1,3.03
 k2,40.11
 k3,1549.98
 ```
+Adding docid indexe
+```
+moritz> create index k2_doc_index
+            on k2 (docid)
+[2020-01-26 20:48:34] completed in 1 s 748 ms
+moritz> create index k1_doc_index
+            on k1 (docid)
+[2020-01-26 20:48:37] completed in 376 ms
+moritz> create index k3_doc_index
+            on k3 (docid)
+[2020-01-26 20:49:20] completed in 41 s 304 ms
+```
+leads to new sizes? no!
+```
+SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size (MB)` FROM information_schema.TABLES WHERE table_schema = "moritz";
+-->
+Table,Size (MB)
+k1,3.31
+k2,48.63
+k3,1845.80
+```
