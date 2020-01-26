@@ -146,3 +146,11 @@ moritz> LOAD DATA INFILE '/tmp/k3.csv' into table k3
         SET hash = UNHEX(@var1)
 [2020-01-26 23:02:50] 32941436 rows affected in 19 m 35 s 23 ms
 ```
+new size
+```
+SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size (MB)` FROM information_schema.TABLES WHERE table_schema = "moritz";
+Table,Size (MB)
+k1,3.38
+k2,82.72
+k3,3656.00
+```
