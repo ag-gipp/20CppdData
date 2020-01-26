@@ -34,3 +34,13 @@ moritz> create or replace table moritz.k3
         	hash binary(20) not null
         )
 [2020-01-26 20:01:57] completed in 155 ms
+moritz> LOAD DATA INFILE '/tmp/k2.csv' into table k2
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-26 20:03:01] 476066 rows affected in 1 s 599 ms
+moritz> LOAD DATA INFILE '/tmp/k3.csv' into table k3
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-26 20:04:42] 18522790 rows affected in 1 m 1 s 55 ms
