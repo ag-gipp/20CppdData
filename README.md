@@ -61,3 +61,11 @@ Frequency distributions [k1](/dist/k1.csv), [k2](/dist/k2.csv), [k3](/dist/k3.cs
 ```
 Select T.freq, count(T.hash) from (Select hash, count(docid) freq from k1 group by hash) T group by T.freq
 ```
+Table sizes (index nur auf hash)
+```
+SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size (MB)` FROM information_schema.TABLES WHERE table_schema = "moritz";
+```
+Table,Size (MB)
+k1,3.03
+k2,40.11
+k3,1549.98
