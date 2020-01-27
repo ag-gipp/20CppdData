@@ -174,3 +174,12 @@ moritz> LOAD DATA INFILE '/tmp/k3.csv' into table k3
             (docid,@var1)
         SET hash = UNHEX(@var1)
 ```
+table sizes
+```
+SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size (MB)` FROM information_schema.TABLES WHERE table_schema = "moritz";
+-->
+Table,Size (MB)
+k1,3.38
+k2,42.64
+k3,604.38
+```
