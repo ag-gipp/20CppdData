@@ -1,6 +1,11 @@
 # CPPD DATA
 This repository contains the data and code to reproduce the experiments in our papers on Content Protecting Plagiarism Detection. 
 
+### CPPD Overview:
+<p align="center">
+  <img src="CPPD_Overview.png" alt="drawing" width="470" align="center"/></br>
+</p>
+
 ## Cases
 [/cases/confirmed_plag](/cases/confirmed_plag)  
 contains the confirmed cases of academic plagiarism in STEM research publications we used as a test collection.
