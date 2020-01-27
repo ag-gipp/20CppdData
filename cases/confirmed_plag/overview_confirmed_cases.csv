@@ -1,0 +1,73 @@
+"Case 
+ID",Research Field,"Title
+Source Document","Author(s) 
+Source Doc.","Venue
+Source Doc.","Year of Publ. Source
+Doc.","DOI / Link
+Source Doc.",,"Title
+Retracted Doc.","Author(s)
+Retracted
+Doc.","Venue
+Retracted
+Doc.","Year of Publ. Retracted
+Doc.","DOI / Link
+Retracted
+Doc.",Retraction Notice,Reviewer Comments,
+C1,Medical Engineering,"FES based Rehabilitation of the Upper Limb using Input/Output
+Linearization and ILC","Chris Freeman, Daisy Tong, Katie Meadmore, Ann-Marie Hughes, Eric Rogers and Jane Burridge",Proc. American Control Conference,2012,https://doi.org/10.1109/ACC.2012.6314927,,RETRACTED ARTICLE: Cascade controller design and stability analysis in FES-aided upper arm stroke rehabilitation robotic system,"Wenkang Xu, Chenxiao Cai, Yun Zou","Nonlinear Dynamics, vol. 79, iss. 2, pp. 1099-1114",2014,https://doi.org/10.1007/s11071-014-1726-1,https://doi.org/10.1007/s11071-015-2422-5,"Highly similar mathematics over an entire section (approx. 4 pages). 
+Contains: 
+- Identical formulae 
+- Near identical formulae with renamed identifiers 
+- Use of equivalent notation, partially rather complex and not easy to determine 
+- Split-up formulae, partially using equivalent notation",
+C2,Mathematics,A better asymptotic profile of Rosenau–Burgers equation,"Liping Liu, Ming Mei","Applied Mathematics and Computation, vol. 131, iss. 10, pp. 147-170 ",2002,https://doi.org/10.1016/S0096-3003(01)00136-9,,Decay of Solutions of Some Nonlinear Equations,Mohammed Aassila,"vol. 60, no. 4, pp. 389-409",2003,https://www.emis.de/journals/PM/60f4/2.html,https://doi.org/10.4171/PM/1826,"Highly similar mathematics throughout the entire document.
+Contains: 
+- Identical formulae 
+- Near identical formulae with renamed identifiers 
+- Near identical formulae with inserted variables, e.g., a+b=c, whereas b = x+y ? a+x+y=c 
+- Use of equivalent notation, partially rather complex and not easy to determine 
+- Switch from inline formulae in the source document to block formulae in the retracted paper 
+- Use of different brackets, ( -> [, small { -> large { - (...)^-4 -> 1/(...)^4 
+- Some intermediate formulae from the source document are missing in the retracted document (interesting pattern: often just every second formula is missing!)",
+C3,Mathematics,Some Remarks on Heron Triangles,"Alpar-Vajk Kramer, Florian Luca","Acta Academiae Paedagogicae Agriensis, Sectio Mathematicae, vol. 27, pp. 25-38",2000,https://www.emis.de/journals/AMI/2000/fluca.pdf,,Some results on Heron triangles,Mohammed Aassila,"Elemente der Mathematik, vol 56, iss. 4, pp 143-146",2001,https://doi.org/10.1007/PL00000549,https://doi.org/10.1007/PL00000549,"Highly similar mathematics throughout the entire document. 
+Contains:
+- Identical formulae 
+- Near identical formulae with renamed identifiers
+- Switch from inline formulae in the source document to block formulae in the retracted paper",
+C4,Bioengineering,Polymer translocation through a long nanopore,Elena Slonkina and Anatoly B. Kolomeisky,"The Journal of Chemical Physics, vol. 118, iss. 15",2003,https://doi.org/10.1063/1.1560932,,RETRACTED: Velocity of polymer translocation through a pore,"Ding Kejian, Zhan Furu, Cai Dongqin, Yu Zengliang","Biochemical and Biophysical Research Communications, vol. 341, iss. 1, pp. 139-142",2006,https://doi.org/10.1016/j.bbrc.2005.12.154,https://doi.org/10.1016/j.bbrc.2005.12.154,"Reuse of an entire model, which is at the core of the paper. 
+- Identifiers partially differ in the source document and the retracted paper. 
+- Sometimes, multiple formulae in the source document are merged into one formula in the retracted paper, but the sequence of formulae is nearly identical.",
+C5,"Computer Science 
+(Sensor Networks)",Sensor Network Calculus – A Framework for Worst Case Analysis,"Jens B. Schmitt, Utz Roedig","Distributed Computing in Sensor Systems. DCOSS 2005. Lecture Notes in Computer Science, vol. 3560, pp. 141-154",2005,https://doi.org/10.1007/11502593_13,,RETRACTED: Worst case dimensioning and modeling of reliable real-time multihop wireless sensor network,"Kambiz Mizanian, Hamed Yousefi, Amir Hossein Jahangir","Performance Evaluation, vol. 66, iss. 12, pp. 685-700",2009,https://doi.org/10.1016/j.peva.2009.08.003,https://doi.org/10.1016/j.peva.2010.07.001,"Highly similar mathematics, but also much new content.
+Contains:
+- Identical formulae
+- Identical formulae with added parameter to the declared function, which also caused addition of higher-level parentheses 
+- Change of formula order 
+- Use of different character to denote product operation",
+C6,"Computer Science 
+(Image Analysis)",Invariance analysis of improved Zernike moments,"Ye Bin, Peng Jia-Xiong","Journal of Optics A: Pure and Applied Optics, vol. 4, iss. 6, pp. 606-614",2002,http://stacks.iop.org/JOptA/4/606,,RETRACTED: Invariance image analysis using modified Zernike moments,"N.K. Kamila, S. Mahapatra, S. Nanda","Pattern Recognition Letters, vol. 26, iss. 6, pp. 747-753",2005,https://doi.org/10.1016/j.patrec.2004.09.026,https://doi.org/10.1016/j.patrec.2004.09.026,"Clear reuse of content, not only math, but also text Contains:
+- Identical formulae 
+- Near identical formulae with renamed identifiers
+- Split-up formulae
+- Integral range defined as new formula, while in the source document the range is inline",
+C7,"Computer Science 
+(Image Analysis)",A new Kernelized hybrid c-mean clustering model with optimized parameters,"MeenaTushira, Smriti Srivastava","Applied Soft Computing, vol. 10, iss. 2, pp. 381-389",2010,https://doi.org/10.1016/j.asoc.2009.08.020,,RETRACTED: A robust kernelized intuitionistic fuzzy c-means clustering algorithm in segmentation of noisy medical images,"Prabhjot Kaur, A.K. Soni, Anjana Gosain","Pattern Recognition Letters, vol. 34, iss. 2, pp. 163-175",2013,https://doi.org/10.1016/j.asoc.2009.08.020,https://doi.org/10.1016/j.patrec.2013.02.001,"Very interesting case. The paper references two sources for the math. Content apart from the formulae is clearly reused inappropriately, however, regarding the math, there is a kind of contribution. The used formulae are substantially altered.
+Contains:
+- Identical formulae
+- Similar formula structure like the source papers, but some components are different beyond simple formula editing.",
+C8,Applied Mathematics,Numerical solution of a nonlinear advance-delay-differential equation from nerve conduction theory,"Henjin Chi, Jonathan Bell, Brian Hassard","Journal of Mathematical Biology,vol. 24, iss. 5, pp 583-601",1986,https://doi.org/10.1007/BF00275686,,RETRACTED: Numerical treatment of nonlinear mixed delay differential equations,Gamal A.F.Ismail,"Applied Mathematical Modelling,
+vol. 29, iss. 5, pp. 439-460",2005,https://doi.org/doi:10.1016/j.apm.2004.09.014,https://doi.org/10.1016/j.apm.2004.09.014,"Some equations correspond to the source document. 
+- Similar equations are nearly identical to the source document, found only one instance of differing function names and some formatting differences, mostly \frac{}{} vs. ()/() 
+- Identical order of formulae as the source document, but many equations are also not from the source document. Only certain chunks of equations match those in the source document.",
+C9,Mathematics,Robust H? observer design of linear time-delay systems with parametric uncertainty,"Zidong Wanga, Biao Huang, H. Unbehauen","Systems & Control Letters, vol. 42, iss. 4, pp. 303-312",2001,https://doi.org/10.1016/S0167-6911(00)00100-6,,RETRACTED: Observer-based passive control of linear time-delay systems with parametric uncertainty,"Bao Tong Cui, Mingang Hua","Chaos, Solitons & Fractals, vol. 32, iss. 1, pp. 160-167",2007,https://doi.org/10.1016/j.chaos.2005.10.089,https://doi.org/10.1016/j.chaos.2005.10.089,"Highly similar mathematics to the source document at multiple positions in the document. 
+- Some equations contain additional variables, e.g., a 2D vector in the source document corresponds to a 3D vector in the retracted paper by splitting a variable C into two variables C1 and C2 
+- Some equations do not occur in the source document, e.g., p4 or they are heavily modified. Some of the variables in those equations are defined in the same order, but the equations are mostly different. 
+- Some equations are expanded compared to the source, e.g., a(b+c) -> ab+ac 
+- The numerical example in the retacted paper uses the same equations and values as the source document",
+C10,Mathematics,"A simple analytical EAM model for bcc metals including Cr
+and its application","Ouyang Yifang, Zhang Bangwei, Liao Shuzhi, Jin Zhanpeng","Zeitschrift für Physik B Condensed Matter, vol. 101, iss. 2, pp. 161-168",1996,https://doi.org/10.1007/s002570050,,RETRACTED: A simple analytical EAM model for some bcc metals,"Ibrahim H. Dursun, Ziya B. Güvenç, E. Kasap","Communications in Nonlinear Science and Numerical Simulation, vol. 15, iss. 5, pp. 1259-1266",2010,https://doi.org/10.1016/j.cnsns.2009.05.034,https://doi.org/10.1016/j.cnsns.2009.05.034,"- Almost all equations correspond to equations in the source document
+- Similar equations are in the same order and derivational steps are identical. 
+- Sometimes use of slightly different notation than the source, e.g., j (!= i) becomes j != i 
+- Formatting of equations sometimes differs slightly, e.g., different line breaks
+ - Two tables are exactly alike (contain the same values) 
+- One table exhibits a different order of columns and rows than the source document",
