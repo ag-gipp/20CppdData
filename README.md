@@ -11,7 +11,8 @@ We provide the original PDF versions of the cases and the cases' representation 
 We embedded our test cases in the collection of the NTCIR-12 MathIR Task. For research purposes, the dataset is available free of charge [here](http://research.nii.ac.jp/ntcir/permission/ntcir-12/perm-en-MathIR.html).
 
 
-**1. [hyplag-backend](https://github.com/ag-gipp/hyplag-backend)** our provided code complements the hyplag-backend by providing a CLI for the hash-generation, data-base imports, and detection using hashed sets.
+**1. [hyplag-backend:](https://github.com/ag-gipp/hyplag-backend)** 
+Our provided code complements the hyplag-backend by providing a CLI for the hash-generation, database imports, and automated BC detection.
 
 
 
