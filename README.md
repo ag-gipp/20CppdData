@@ -154,3 +154,23 @@ k1,3.38
 k2,82.72
 k3,3656.00
 ```
+
+### Attempt 3
+
+Load the data again (see above)
+```
+moritz> LOAD DATA INFILE '/tmp/k1.csv' into table k1
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-27 04:49:01] 22658 rows affected in 328 ms
+moritz> LOAD DATA INFILE '/tmp/k2.csv' into table k2
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+[2020-01-27 04:49:19] 358763 rows affected in 3 s 988 ms
+moritz> LOAD DATA INFILE '/tmp/k3.csv' into table k3
+            FIELDS TERMINATED BY ','
+            (docid,@var1)
+        SET hash = UNHEX(@var1)
+```
