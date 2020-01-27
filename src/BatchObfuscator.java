@@ -3,6 +3,7 @@ package org.sciplore.batch;
 import com.google.common.hash.Hashing;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.paukov.combinatorics3.Generator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -65,9 +66,6 @@ public class BatchObfuscator {
         ForkJoinPool customThreadPool = new ForkJoinPool(Integer.parseInt(finalCmd.getOptionValue("parallel", DEFAULT_NUMBER_OF_THREADS)));
         customThreadPool.submit(() -> range.parallelStream().forEachOrdered(docNum -> {
             try {
-                if(DEFAULT_SAMPLES){
-                    docNum = 37591;
-                }
                 Connection connection = getPooledConnection();
 
                 progress.getAndIncrement();
@@ -96,9 +94,6 @@ public class BatchObfuscator {
 
                 out.println("Progress: "+ progress + " Document " + docNum + " finished at: " + DateFormat.getDateTimeInstance().format(new Date(currentTimeMillis())));
                 connection.close();
-                if(DEFAULT_SAMPLES){
-                    System.exit(1);
-                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -349,17 +344,27 @@ public class BatchObfuscator {
                 Connection connection = getPooledConnection();
                 // Get all refs of 1 document
                 Statement pstmt = connection.createStatement();
-                ResultSet prs = pstmt.executeQuery("SELECT DISTINCT document_id, title from document_reference where document_id=" + docNum + " order by document_id desc");
+                ResultSet prs = pstmt.executeQuery("SELECT DISTINCT document_id, unique_reference_id from document_reference where document_id=" + docNum + " order by document_id desc");
 
                 // Fetch each row from the result set
                 LinkedList<String> refList = new LinkedList<>();
                 while (prs.next()) {
-                    String title = prs.getString("title");
+                    String title = prs.getString("unique_reference_id");
                     if (title == null) {
                         continue;
                     }
-                    title = Normalizer.normalize(title.toLowerCase(), Normalizer.Form.NFD).replaceAll("\\s+-+","");
-                    title = Hashing.sha1().hashString(title, StandardCharsets.UTF_8).toString();
+                    // DEFAULT_HASH = "1"; // 1:SHA1, 2:SHA256, 3:Adler32
+                    if (DEFAULT_HASH == 1){
+                        title = Normalizer.normalize(title.toLowerCase(), Normalizer.Form.NFD).replaceAll("\\s+-+","");
+                        title = Hashing.sha1().hashString(title, StandardCharsets.UTF_8).toString();
+                    } else if (DEFAULT_HASH == 2){
+                        title = Normalizer.normalize(title.toLowerCase(), Normalizer.Form.NFD).replaceAll("\\s+-+","");
+                        title = Hashing.sha256().hashString(title, StandardCharsets.UTF_8).toString();
+                    } else if (DEFAULT_HASH == 3){
+                        title = Normalizer.normalize(title.toLowerCase(), Normalizer.Form.NFD).replaceAll("\\s+-+","");
+                        title = Hashing.adler32().hashString(title, StandardCharsets.UTF_8).toString();
+                    }
+
 
                     refList.add(title);
                 }
@@ -372,18 +377,47 @@ public class BatchObfuscator {
                 if (finalCmd.hasOption("database")) {
                     ps = connection.prepareStatement("INSERT INTO k" + finalCmd.getOptionValue("tupleSize", DEFAULT_KTUPLE) + "_tuple (doc_id, UNHEX(hash_value)) VALUES (?, ?)");
                 } else {
-                    builder.append(ColumnNamesList + "\n");
+                  // builder.append(ColumnNamesList + "\n");
                 }
 
+                List myList = new LinkedList();
                 // TODO: create generic recursive tuple builders for all k
                 if (refList.size() > 0 && refList.size() <= Integer.parseInt(finalCmd.getOptionValue("refs", DEFAULT_MAX_REFS))) {
-                    if (Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE)) == 3) {
-                        getTuples3(finalCmd, docNum, ps, builder, refList);
-                    } else if (Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE)) == 2) {
-                        getTuples2(finalCmd, docNum, ps, builder, refList);
-                    } else if (Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE)) == 1) {
-                        getHashes(finalCmd, docNum, ps, builder, refList);
-                    }
+                    int k = Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE));
+                    Generator.combination(refList)
+                        .simple(k)
+                        .stream()
+                        .forEach(s->{
+                          String combined="";
+                          for (String ref : s) {
+                            combined += ref;
+                          }
+                          String hash = Hashing.sha1().hashString(combined, StandardCharsets.UTF_8).toString();
+                          builder.append(docNum + "," + hash);
+                          builder.append('\n');
+                        });
+//                    if (Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE)) == 3) {
+//                        // getTuples3(finalCmd, docNum, ps, builder, refList);
+//                        Generator.combination(refList)
+//                                .simple(3)
+//                                .stream()
+//                                .forEach(ref -> myList.add(ref));
+//                    } else if (Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE)) == 2) {
+//                        // getTuples2(finalCmd, docNum, ps, builder, refList);
+//                        Generator.combination(refList)
+//                                .simple(2)
+//                                .stream()
+//                                .forEach(ref -> myList.add(ref));
+//                    } else if (Integer.parseInt(finalCmd.getOptionValue("ktuple", DEFAULT_KTUPLE)) == 1) {
+//                        getHashes(finalCmd, docNum, ps, builder, refList);
+//                    }
+//
+//                    // Was tun mit der liste?
+//                    for (Object ref:myList) {
+//                        // prepare file
+//                        builder.append(docNum + "," + ref.hashCode());
+//                        builder.append('\n');
+//                    }
 
                     // Batch insert after each document
                     if (finalCmd.hasOption("database")) {
