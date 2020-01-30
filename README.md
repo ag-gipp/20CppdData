@@ -12,5 +12,5 @@ The cases of retracted papers might be optained from https://github.com/ag-gipp/
 ## Document Collection
 We embedded our test cases in the collection of the NTCIR-12 MathIR Task. For research purposes, the dataset is available free of charge [here](http://research.nii.ac.jp/ntcir/permission/ntcir-12/perm-en-MathIR.html).
 
-For your convinence, we preprocessed the dataset and extracted the hashes of the references used for the experiments described in the paper to the directory [evaluation](/evaluation). There are three csv-files wich can be imported to any relational database system. The readme in that repository contains specific instructions how to import the documents to mysql ,i.e., maria db 10, running on docker.
+For your convinence, we preprocessed the dataset and extracted the hashes of the references used for the experiments described in the paper to the directory [evaluation](/evaluation). There are three csv-files wich can be imported to any relational database system. The [readme](/evaluation/README.md) in that folder contains specific instructions how to import the documents to mysql ,i.e., maria db 10, running on docker.
 
