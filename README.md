@@ -7,10 +7,7 @@ This repository contains the data and code to reproduce the experiments in our p
 </p>
 
 ## Cases
-[/cases/confirmed_plag](/cases/confirmed_plag)  
-contains the confirmed cases of academic plagiarism in STEM research publications we used as a test collection.
-
-We provide the original PDF versions of the cases and the cases' representation in the TEI-based unified document format, as preprocessed by our prototype.
+The cases of retracted papers might be optained from https://github.com/ag-gipp/hyplag-data (user: hyplag-guest | pw: hybridPD). For more information on this dataset please consult the [project page](https://purl.org/hybridPD)
 
 ## Document Collection
 We embedded our test cases in the collection of the NTCIR-12 MathIR Task. For research purposes, the dataset is available free of charge [here](http://research.nii.ac.jp/ntcir/permission/ntcir-12/perm-en-MathIR.html).
